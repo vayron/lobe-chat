@@ -9,8 +9,6 @@ import { HEADER_ICON_SIZE } from '@/const/layoutTokens';
 import { configService } from '@/services/config';
 import { useSessionStore } from '@/store/session';
 
-import SubmitAgentButton from './SubmitAgentButton';
-
 export const HeaderContent = memo<{ mobile?: boolean }>(() => {
   const { t } = useTranslation('setting');
   const id = useSessionStore((s) => s.activeId);
@@ -43,7 +41,7 @@ export const HeaderContent = memo<{ mobile?: boolean }>(() => {
 
   return (
     <>
-      <SubmitAgentButton />
+      <div />
       <Dropdown arrow={false} menu={{ items }} trigger={['click']}>
         <ActionIcon
           icon={HardDriveDownload}

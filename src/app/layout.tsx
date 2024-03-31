@@ -27,6 +27,7 @@ const RootLayout = async ({ children }: PropsWithChildren) => {
         </GlobalProvider>
         <Analytics />
         <SpeedInsights />
+        <script async defer src="https://accounts.google.com/gsi/client"></script>
       </body>
     </html>
   );

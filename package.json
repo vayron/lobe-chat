@@ -88,7 +88,7 @@
     "@icons-pack/react-simple-icons": "^9",
     "@lobehub/chat-plugin-sdk": "latest",
     "@lobehub/chat-plugins-gateway": "latest",
-    "@lobehub/icons": "latest",
+    "@lobehub/icons": "^1.17.0",
     "@lobehub/tts": "latest",
     "@lobehub/ui": "^1.137.4",
     "@next/third-parties": "^14.1.4",
