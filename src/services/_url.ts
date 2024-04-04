@@ -18,7 +18,7 @@ export const API_ENDPOINTS = mapWithBasePath({
   config: '/api/config',
   proxy: '/api/proxy',
   oauth: '/api/auth',
-
+  webhook: '/api/webhook',
   // agent markets
   market: '/api/market',
   marketItem: (identifier: string) => withBasePath(`/api/market/${identifier}`),

@@ -21,6 +21,8 @@ declare global {
       LANGFUSE_PUBLIC_KEY?: string;
       LANGFUSE_SECRET_KEY?: string;
       LANGFUSE_HOST?: string;
+
+      STRIPE_CODE: string;
     }
   }
 }

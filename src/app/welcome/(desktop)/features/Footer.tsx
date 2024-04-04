@@ -11,7 +11,9 @@ const Footer = memo(() => {
 
   return (
     <Flexbox align={'center'} horizontal justify={'space-between'} style={{ padding: 16 }}>
-      <span style={{ color: theme.colorTextDescription }}>©{new Date().getFullYear()} UFO·SB</span>
+      <span style={{ color: theme.colorTextDescription }}>
+        ©{new Date().getFullYear()} UFO Super Bot
+      </span>
       <Flexbox horizontal>
         <a href={AGENTS_INDEX_GITHUB}>Tribute to the Lobehub</a>
       </Flexbox>

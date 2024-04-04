@@ -6,7 +6,7 @@ import { OFFICIAL_URL } from '@/const/url';
 
 import pkg from '../../package.json';
 
-const title = 'UFO·SB Chat';
+const title = 'UFO Super Bot';
 const { description, homepage } = pkg;
 
 const { SITE_URL = OFFICIAL_URL } = getServerConfig();
@@ -53,7 +53,7 @@ const metadata: Metadata = {
 
   title: {
     default: title,
-    template: '%s · UFO·SB Chat',
+    template: '%s · UFO Super Bot',
   },
   twitter: {
     card: 'summary_large_image',
