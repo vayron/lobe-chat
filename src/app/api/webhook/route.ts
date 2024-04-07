@@ -1,39 +1,63 @@
-// import Stripe from 'stripe';
-// const stripe = new Stripe(process.env.STRIPE_CODE);
-// const endpointSecret = 'whsec_e4602f21aa4746222ab1754dbd9940c6c841b90a9a4ca74bc50b92bd8d01866a';
+import Stripe from 'stripe';
 
-export const runtime = 'edge';
+import { cancelSubscription, payment, subscription } from '../firebase/subscription';
+
+const stripe = new Stripe(process.env.STRIPE_CODE);
 
 export const POST = async (request: Request) => {
   const result = await request.json();
-  console.log('type ==>', result.type);
   try {
     switch (result.type) {
-      case 'charge.succeeded': {
-        const { billing_details } = result.data.object as any;
-        const { email } = billing_details;
-        console.log('email:', email);
-        break;
-      }
-
-      case 'customer.subscription.canceled': {
-        console.log(result);
-        // console.log('subscription_schedule.canceled');
-        break;
-      }
-
-      case 'subscription_schedule.created': {
-        // console.log('subscription_schedule.created:');
-        break;
-      }
-
+      // 订阅模式
       case 'checkout.session.completed': {
-        // console.log('subscription_schedule.updated');
+        const { currency, amount_total, customer_details } = result.data.object;
+        const { email } = customer_details as any;
+
+        /**
+         * mode: payment || subscription
+         * **/
+
+        if (result.data.mode === 'subscription') {
+          subscription(email, {
+            amount_total,
+            currency,
+            customer_details,
+          });
+        } else if (result.data.mode === 'payment') {
+          payment(email, {
+            amount_total,
+            currency,
+            customer_details,
+          });
+        }
         break;
       }
 
-      case 'payment_intent.succeeded': {
-        // console.log('payment_intent.succeeded:');
+      // 取消订阅 在某个时间点
+      case 'customer.subscription.updated': {
+        const { customer, cancel_at } = result.data.object as any;
+        try {
+          const customerData = (await stripe.customers.retrieve(customer)) as any;
+          if (customerData?.email) {
+            cancelSubscription(customerData.email, cancel_at * 1000);
+          }
+        } catch (e) {
+          console.log('e: ', e);
+        }
+        break;
+      }
+
+      // 立即取消订阅
+      case 'customer.subscription.deleted': {
+        const { customer } = result.data.object as any;
+        try {
+          const customerData = (await stripe.customers.retrieve(customer)) as any;
+          if (customerData?.email) {
+            cancelSubscription(customerData.email);
+          }
+        } catch (e) {
+          console.log('e: ', e);
+        }
         break;
       }
       default:
@@ -44,3 +68,4 @@ export const POST = async (request: Request) => {
 
   return new Response(undefined, { status: 200 });
 };
+export const runtime = 'edge';

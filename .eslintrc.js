@@ -17,6 +17,7 @@ config.rules['unicorn/prefer-spread'] = 0;
 config.rules['unicorn/catch-error-name'] = 0;
 config.rules['unicorn/no-array-for-each'] = 0;
 config.rules['unicorn/prefer-number-properties'] = 0;
+config.rules['unicorn/no-console-spaces'] = 0;
 
 config.overrides = [
   {

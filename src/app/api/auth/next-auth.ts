@@ -5,6 +5,8 @@ import AzureAd from 'next-auth/providers/azure-ad';
 
 import { getServerConfig } from '@/config/server';
 
+import { regiserUser } from '../firebase/user';
+
 const {
   ENABLE_OAUTH_SSO,
   SSO_PROVIDERS,
@@ -44,6 +46,18 @@ const nextAuth = NextAuth({
         session.user.id = token.userId ?? session.user.id;
       }
       return session;
+    },
+    async signIn({ user, account, profile }) {
+      if (user && account && profile) {
+        regiserUser({
+          avater: profile.picture,
+          email: profile.email,
+          locale: profile.locale,
+          username: user.name,
+          uuid: account?.providerAccountId || user.id,
+        });
+      }
+      return true;
     },
   },
   providers: ENABLE_OAUTH_SSO
