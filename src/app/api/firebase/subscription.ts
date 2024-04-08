@@ -45,7 +45,7 @@ export const payment = async (email: string, info?: any) => {
   if (result?.data?.mode === 2 && result?.data?.limit_time > 0) {
     const date1 = moment(result?.data?.limit_time);
     const date2 = moment(Date.now());
-    const diffInDays = date2.diff(date1, 'days');
+    const diffInDays = date1.diff(date2, 'days');
     days += diffInDays;
   }
 
