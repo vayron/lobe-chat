@@ -10,51 +10,55 @@ export const POST = async (request: Request) => {
     switch (result.type) {
       // 订阅模式
       case 'checkout.session.completed': {
-        const { currency, amount_total, customer_details, mode } = result.data.object;
-        const { email } = customer_details as any;
+        try {
+          const { currency, amount_total, customer_details, mode } = result.data.object;
+          const { email } = customer_details as any;
 
-        /**
-         * mode: payment || subscription
-         * **/
+          /**
+           * mode: payment || subscription
+           * **/
 
-        if (mode === 'subscription') {
-          subscription(email, {
-            amount_total,
-            currency,
-          });
-        } else if (mode === 'payment') {
-          payment(email, {
-            amount_total,
-            currency,
-          });
+          if (mode === 'subscription') {
+            subscription(email, {
+              amount_total,
+              currency,
+            });
+          } else if (mode === 'payment') {
+            payment(email, {
+              amount_total,
+              currency,
+            });
+          }
+        } catch (e) {
+          console.log('checkout.session.completed: ', e);
         }
         break;
       }
 
       // 取消订阅 在某个时间点
       case 'customer.subscription.updated': {
-        const { customer, cancel_at } = result.data.object as any;
         try {
+          const { customer, cancel_at } = result.data.object as any;
           const customerData = (await stripe.customers.retrieve(customer)) as any;
           if (customerData?.email) {
             cancelSubscription(customerData.email, cancel_at * 1000);
           }
         } catch (e) {
-          console.log('e: ', e);
+          console.log('customer.subscription.updated: ', e);
         }
         break;
       }
 
       // 立即取消订阅
       case 'customer.subscription.deleted': {
-        const { customer } = result.data.object as any;
         try {
+          const { customer } = result.data.object as any;
           const customerData = (await stripe.customers.retrieve(customer)) as any;
           if (customerData?.email) {
             cancelSubscription(customerData.email);
           }
         } catch (e) {
-          console.log('e: ', e);
+          console.log('customer.subscription.deleted: ', e);
         }
         break;
       }
