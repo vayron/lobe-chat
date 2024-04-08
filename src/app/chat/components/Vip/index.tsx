@@ -15,10 +15,11 @@ const useStyles = createStyles(({ css }) => ({
   bg: css`
     cursor: pointer;
 
-    display: flex;
     gap: 5px;
 
-    padding: 2px 12px;
+    width: max-content;
+    margin-right: 5px;
+    padding: 2px 10px;
 
     background: rgba(255, 255, 255, 10%);
     border-radius: 8px;
@@ -73,28 +74,32 @@ function Btn(props: any) {
   switch (props?.subscription?.mode) {
     case 0: {
       template = (
-        <>
-          <Icon icon={Shrub} />
-          {props?.subscription?.limit_days} days left of free trial
-        </>
+        <p>
+          <Icon color="rgba(16,163,127,1)" icon={Shrub} />
+          {props?.isMobile
+            ? `${props?.subscription?.limit_days || 0} days free`
+            : `${props?.subscription?.limit_days || 0} days left of free trial`}
+        </p>
       );
       break;
     }
     case 1: {
       template = (
-        <>
+        <p>
           <Icon color="yellow" icon={Zap} />
           SVIP
-        </>
+        </p>
       );
       break;
     }
     case 2: {
       template = (
-        <>
+        <p>
           <Icon color="rgba(0,102,222,1)" icon={Sparkles} />
-          {props?.subscription?.limit_days} days left of VIP
-        </>
+          {props?.isMobile
+            ? `${props?.subscription?.limit_days || 0} days left`
+            : `${props?.subscription?.limit_days || 0} left of VIP`}
+        </p>
       );
       break;
     }
@@ -118,20 +123,27 @@ function PlanList(props: any) {
       },
       rows: {
         step: 1,
-        value: 3,
+        value: props?.isMobile ? 1 : 3,
       },
     },
     { store },
   );
+
   const [configs] = useState([
     {
       active: props?.subscription?.mode === 0,
       btn: 'Default plan',
-      icon: <>Free</>,
+      icon: (
+        <>
+          <Icon color="rgba(16,163,127,1)" icon={Shrub} /> Free
+        </>
+      ),
       list: [
         'Unlimited messages, interactions, and history',
         'Free to use and create agents',
+        'Free to use ChatGPT Plugins',
         'Access on PC, mobile',
+        'Support for PWA',
       ],
       subTitle: 'USD $0.00/month',
       summary: '7 days of free trial:',
@@ -144,7 +156,6 @@ function PlanList(props: any) {
       href: '',
       icon: (
         <>
-          {' '}
           <Icon color="yellow" icon={Zap} /> SVIP
         </>
       ),
@@ -179,7 +190,7 @@ function PlanList(props: any) {
       width={'100%'}
       {...control}
       style={{
-        borderTop: '1px solid hsla(0, 0%, 100%, .1)',
+        borderTop: props?.isMobile ? '' : '1px solid hsla(0, 0%, 100%, .1)',
         marginTop: '5px',
         padding: '20px 0',
       }}
@@ -212,7 +223,7 @@ function PlanList(props: any) {
   );
 }
 
-const Vip = memo<{ email?: string }>(() => {
+const Vip = memo<{ isMobile?: boolean }>(({ isMobile }) => {
   let email = '' as string;
   let authSession: SessionContextValue | null;
 
@@ -245,10 +256,11 @@ const Vip = memo<{ email?: string }>(() => {
     subscription?.email && (
       <Flexbox align={'center'} distribution={'space-between'} horizontal>
         <div className={styles.bg} onClick={showModal}>
-          <Btn subscription={subscription}></Btn>
+          <Btn isMobile={isMobile} subscription={subscription}></Btn>
         </div>
+
         <Modal footer={false} onCancel={handleCancel} open={isModalOpen} title="Upgrade your plan">
-          <PlanList subscription={subscription}></PlanList>
+          <PlanList isMobile={isMobile} subscription={subscription}></PlanList>
         </Modal>
       </Flexbox>
     )

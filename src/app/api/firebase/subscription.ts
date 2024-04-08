@@ -60,7 +60,7 @@ export const payment = async (email: string, info?: any) => {
 };
 
 export const free = async (email: string) => {
-  let limit_time = moment().add(8, 'days').valueOf();
+  let limit_time = moment().add(7, 'days').valueOf();
 
   add('subscription', {
     email,

@@ -1,7 +1,7 @@
 import { where } from 'firebase/firestore';
 import moment from 'moment';
 
-import { get } from '../controller';
+import { get, update } from '../controller';
 
 // @ts-ignore
 global['navigator'] = {};
@@ -14,11 +14,13 @@ export const GET = async (req: Request, res: Response) => {
   try {
     result = await get('subscription', where('email', '==', email));
 
-    if (result?.data?.limit_time > 0) {
+    if (result?.data?.limit_time - Date.now() > 0) {
       const date1 = moment(result.data.limit_time);
       const date2 = moment(Date.now());
       const diffInDays = date1.diff(date2, 'days');
-      result.data.limit_days = diffInDays;
+      result.data.limit_days = diffInDays + 1;
+    } else if (result?.data?.limit_time !== 0) {
+      result = await update('subscription', { limit_time: 0 }, where('email', '==', email));
     }
   } catch (e) {
     console.log('e: ', e);
