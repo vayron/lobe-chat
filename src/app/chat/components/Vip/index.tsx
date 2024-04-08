@@ -75,7 +75,7 @@ function Btn(props: any) {
     case 0: {
       template = (
         <p>
-          <Icon color="rgba(16,163,127,1)" icon={Shrub} />
+          <Icon color="rgba(16,163,127,1)" icon={Shrub} />{' '}
           {props?.isMobile
             ? `${props?.subscription?.limit_days || 0} days free`
             : `${props?.subscription?.limit_days || 0} days left of free trial`}
@@ -86,8 +86,7 @@ function Btn(props: any) {
     case 1: {
       template = (
         <p>
-          <Icon color="yellow" icon={Zap} />
-          SVIP
+          <Icon color="yellow" icon={Zap} /> SVIP
         </p>
       );
       break;
@@ -95,7 +94,7 @@ function Btn(props: any) {
     case 2: {
       template = (
         <p>
-          <Icon color="rgba(0,102,222,1)" icon={Sparkles} />
+          <Icon color="rgba(0,102,222,1)" icon={Sparkles} />{' '}
           {props?.isMobile
             ? `${props?.subscription?.limit_days || 0} days left`
             : `${props?.subscription?.limit_days || 0} left of VIP`}
