@@ -132,6 +132,7 @@ function PlanList(props: any) {
     {
       active: props?.subscription?.mode === 0,
       btn: 'Default plan',
+      btnBgColor: 'rgba(16,163,127,1)',
       icon: (
         <>
           <Icon color="rgba(16,163,127,1)" icon={Shrub} /> Free
