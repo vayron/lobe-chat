@@ -1,5 +1,5 @@
 import { Form, type ItemGroup } from '@lobehub/ui';
-import { Form as AntForm, App, Button, Input } from 'antd';
+import { Form as AntForm, App, Button } from 'antd';
 import isEqual from 'fast-deep-equal';
 import { AppWindow } from 'lucide-react';
 import { signIn, signOut } from 'next-auth/react';
@@ -24,7 +24,7 @@ export interface SettingsCommonProps {
   showOAuthLogin: boolean;
 }
 
-const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig, showOAuthLogin }) => {
+const Common = memo<SettingsCommonProps>(({ showOAuthLogin }) => {
   const { t } = useTranslation('setting');
   const [form] = AntForm.useForm();
 
@@ -95,18 +95,18 @@ const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig, showOAuthLogin
 
   const system: SettingItemGroup = {
     children: [
-      {
-        children: (
-          <Input.Password
-            autoComplete={'new-password'}
-            placeholder={t('settingSystem.accessCode.placeholder')}
-          />
-        ),
-        desc: t('settingSystem.accessCode.desc'),
-        hidden: !showAccessCodeConfig,
-        label: t('settingSystem.accessCode.title'),
-        name: 'password',
-      },
+      // {
+      //   children: (
+      //     <Input.Password
+      //       autoComplete={'new-password'}
+      //       placeholder={t('settingSystem.accessCode.placeholder')}
+      //     />
+      //   ),
+      //   desc: t('settingSystem.accessCode.desc'),
+      //   hidden: !showAccessCodeConfig,
+      //   label: t('settingSystem.accessCode.title'),
+      //   name: 'password',
+      // },
       {
         children: isOAuthLoggedIn ? (
           <Button onClick={handleSignOut}>{t('settingSystem.oauth.signout.action')}</Button>

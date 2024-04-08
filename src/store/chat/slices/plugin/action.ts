@@ -87,7 +87,9 @@ export const chatPlugin: StateCreator<
 
     try {
       content = JSON.parse(data);
-    } catch {}
+    } catch (e) {
+      console.log('e: ', e);
+    }
 
     if (!content) return;
 

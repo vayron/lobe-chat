@@ -1,6 +1,7 @@
 import { where } from 'firebase/firestore';
 
 import { add, get } from './controller';
+import { free } from './subscription';
 
 // @ts-ignore
 global['navigator'] = {};
@@ -14,10 +15,12 @@ interface UserInfo {
 }
 
 export const regiserUser = async (user: UserInfo) => {
-  const result = await get('user', where('email', '==', user.email));
+  const email = user.email as string;
+  const result = await get('user', where('email', '==', email));
   if (!result?.data?.email && result.status) {
     add('user', {
       ...user,
     });
+    free(email);
   }
 };

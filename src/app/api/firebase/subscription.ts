@@ -40,7 +40,7 @@ export const cancelSubscription = async (email: string, limit_time?: number) => 
 
 export const payment = async (email: string, info?: any) => {
   const result = await get('subscription', where('email', '==', email));
-  let days = 31;
+  let days = 30;
 
   if (result?.data?.mode === 2 && result?.data?.limit_time > 0) {
     const date1 = moment(result?.data?.limit_time);
@@ -56,5 +56,15 @@ export const payment = async (email: string, info?: any) => {
     info,
     limit_time,
     mode: 2,
+  });
+};
+
+export const free = async (email: string) => {
+  let limit_time = moment().add(8, 'days').valueOf();
+
+  add('subscription', {
+    email,
+    limit_time,
+    mode: 0,
   });
 };

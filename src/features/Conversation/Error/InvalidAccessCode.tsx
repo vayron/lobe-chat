@@ -1,7 +1,7 @@
 import { Icon } from '@lobehub/ui';
 import { Segmented } from 'antd';
 import { SegmentedLabeledOption } from 'antd/es/segmented';
-import { AsteriskSquare, KeySquare, ScanFace } from 'lucide-react';
+import { KeySquare, ScanFace } from 'lucide-react';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
@@ -45,11 +45,11 @@ const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider }) => {
                   value: Tab.Oauth,
                 }
               : undefined,
-            {
-              icon: <Icon icon={AsteriskSquare} />,
-              label: t('unlock.tabs.password'),
-              value: Tab.Password,
-            },
+            // {
+            //   icon: <Icon icon={AsteriskSquare} />,
+            //   label: t('unlock.tabs.password'),
+            //   value: Tab.Password,
+            // },
             { icon: <Icon icon={KeySquare} />, label: t('unlock.tabs.apiKey'), value: Tab.Api },
           ].filter(Boolean) as SegmentedLabeledOption[]
         }
