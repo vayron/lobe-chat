@@ -10,24 +10,22 @@ export const POST = async (request: Request) => {
     switch (result.type) {
       // 订阅模式
       case 'checkout.session.completed': {
-        const { currency, amount_total, customer_details } = result.data.object;
+        const { currency, amount_total, customer_details, mode } = result.data.object;
         const { email } = customer_details as any;
 
         /**
          * mode: payment || subscription
          * **/
 
-        if (result.data.mode === 'subscription') {
+        if (mode === 'subscription') {
           subscription(email, {
             amount_total,
             currency,
-            customer_details,
           });
-        } else if (result.data.mode === 'payment') {
+        } else if (mode === 'payment') {
           payment(email, {
             amount_total,
             currency,
-            customer_details,
           });
         }
         break;
