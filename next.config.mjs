@@ -36,11 +36,6 @@ const nextConfig = {
       'chroma-js',
     ],
     webVitalsAttribution: ['CLS', 'LCP'],
-    logging: {
-      fetches: {
-        fullUrl: true,
-      },
-    },
   },
 
   output: buildWithDocker ? 'standalone' : undefined,
