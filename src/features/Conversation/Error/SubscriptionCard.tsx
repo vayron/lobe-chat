@@ -21,7 +21,7 @@ const AccessCodeForm = memo<AccessCodeFormProps>(({ id }) => {
   return (
     <>
       <FormAction
-        avatar={'🗳'}
+        avatar={'👑'}
         description={t('unlock.password.description')}
         title={t('unlock.password.title')}
       >
