@@ -64,7 +64,13 @@ const ErrorMessageExtra = memo<{ data: ChatMessage }>(({ data }) => {
     }
 
     case ChatErrorType.InvalidAccessCode: {
-      return <InvalidAccessCode id={data.id} provider={data.error?.body?.provider} />;
+      return (
+        <InvalidAccessCode
+          id={data.id}
+          provider={data.error?.body?.provider}
+          tab={data.error?.body?.tab}
+        />
+      );
     }
 
     case AgentRuntimeErrorType.InvalidBedrockCredentials:

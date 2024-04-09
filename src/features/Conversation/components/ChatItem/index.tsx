@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useChatStore } from '@/store/chat';
 import { chatSelectors } from '@/store/chat/selectors';
+import { useFirebaseStore } from '@/store/firebase/store';
 import { useGlobalStore } from '@/store/global';
 import { settingsSelectors } from '@/store/global/selectors';
 import { useSessionStore } from '@/store/session';
@@ -41,14 +42,35 @@ const Item = memo<ChatListItemProps>(({ index, id }) => {
     const config = agentSelectors.currentAgentConfig(s);
     return [config.displayMode];
   });
+  const subscription = useFirebaseStore.getState().subscription;
 
   const meta = useSessionStore(agentSelectors.currentAgentMeta, isEqual);
   const item = useChatStore((s) => {
     const chats = chatSelectors.currentChatsWithGuideMessage(meta)(s);
+    console.log(chats.length === index, chats.length, index);
+    if (
+      subscription.isPay === false &&
+      chats.length === index + 1 &&
+      chats[index]?.role === 'assistant' &&
+      !chats[index]?.error
+    ) {
+      chats[index].error = {
+        body: {
+          error: {
+            errorType: 'InvalidAccessCode',
+          },
+          provider: '',
+          tab: 'subscription',
+        },
+        message:
+          'Your free trial or membership has expired. You need to subscribe or top up to continue using.',
+        type: 'InvalidAccessCode',
+      };
+    }
 
     if (index >= chats.length) return;
 
-    return chatSelectors.currentChatsWithGuideMessage(meta)(s)[index];
+    return chats[index];
   }, isEqual);
 
   const historyLength = useChatStore((s) => chatSelectors.currentChats(s).length);

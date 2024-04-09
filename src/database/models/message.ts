@@ -11,6 +11,7 @@ export interface CreateMessageParams
     Pick<ChatMessage, 'content' | 'role'> {
   fromModel?: string;
   fromProvider?: string;
+  isPay?: boolean;
   sessionId: string;
   traceId?: string;
 }

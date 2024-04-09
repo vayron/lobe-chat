@@ -20,9 +20,17 @@ export const GET = async (req: Request, res: Response) => {
       const diffInDays = date1.diff(date2, 'days');
       result.data.limit_days = diffInDays + 1;
 
-      // 非订阅模式下，时间过期
+      // 非订阅模式下，更新时间过期
     } else if (result?.data?.limit_time > 0 && result.data.mode !== 1) {
       result = await update('subscription', { limit_time: 0 }, where('email', '==', email));
+      result.data.limit_days = 0;
+    }
+
+    // 免费 或 付费
+    if (result.data.limit_days > 0 || result.data.mode === 1) {
+      result.data.isPay = true;
+    } else {
+      result.data.isPay = false;
     }
   } catch (e) {
     console.log('e: ', e);
