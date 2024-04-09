@@ -19,12 +19,7 @@ const BottomActions = memo<BottomActionProps>(({ tab }) => {
   const router = useRouter();
   const { t } = useTranslation('common');
 
-  const [hasNewVersion, useCheckLatestVersion] = useGlobalStore((s) => [
-    s.hasNewVersion,
-    s.useCheckLatestVersion,
-  ]);
-
-  useCheckLatestVersion();
+  const [hasNewVersion] = useGlobalStore((s) => [s.hasNewVersion, s.useCheckLatestVersion]);
 
   const items: MenuProps['items'] = [
     {

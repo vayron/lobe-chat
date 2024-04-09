@@ -21,7 +21,7 @@ export async function add(tableName: string, params: any) {
     });
     return { data: { id: docRef.id }, message: 'success', status: 1 };
   } catch (e) {
-    console.error('Error adding document:', e);
+    console.error('firebase add:', e);
     return { data: null, message: 'fail', status: 0 };
   }
 }
@@ -39,7 +39,6 @@ export async function get(tableName: string, ...args: QueryConstraint[]) {
         docRef = data;
       }
     });
-    console.log('docRef', docRef);
     return {
       data: {
         ...docRef,
@@ -48,7 +47,7 @@ export async function get(tableName: string, ...args: QueryConstraint[]) {
       status: 1,
     };
   } catch (e) {
-    console.log('e: ', e);
+    console.error('firebase get:', e);
     return { data: null, message: 'fail', status: 0 };
   }
 }
@@ -72,7 +71,7 @@ export async function getList(tableName: string, ...args: QueryConstraint[]) {
       status: 1,
     };
   } catch (e) {
-    console.log('e: ', e);
+    console.error('firebase getList:', e);
     return { data: null, message: 'fail', status: 0 };
   }
 }
@@ -105,7 +104,7 @@ export async function update(tableName: string, params: any, ...args: QueryConst
       status: 1,
     };
   } catch (e) {
-    console.log('e: ', e);
+    console.error('firebase update:', e);
     return { data: null, message: 'fail', status: 0 };
   }
 }

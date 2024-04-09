@@ -55,15 +55,6 @@ const metadata: Metadata = {
     default: title,
     template: '%s · UFO Super Bot',
   },
-  twitter: {
-    card: 'summary_large_image',
-    description,
-    images: [
-      'https://registry.npmmirror.com/@lobehub/assets-favicons/latest/files/assets/og-960x540.png',
-    ],
-    site: '@lobehub',
-    title,
-  },
 };
 
 export default metadata;

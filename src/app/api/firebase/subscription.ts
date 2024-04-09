@@ -32,6 +32,7 @@ export const cancelSubscription = async (email: string, limit_time?: number) => 
       'subscription',
       {
         limit_time: limit_time || 0,
+        mode: 0,
       },
       where('email', '==', email),
     );
