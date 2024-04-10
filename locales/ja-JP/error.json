@@ -159,7 +159,8 @@
     },
     "tabs": {
       "apiKey": "カスタムAPIキー",
-      "password": "パスワード"
+      "password": "パスワード",
+      "subscription": "サブスクリプション"
     }
   }
 }

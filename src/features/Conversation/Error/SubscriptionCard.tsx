@@ -14,7 +14,7 @@ interface AccessCodeFormProps {
 }
 
 const AccessCodeForm = memo<AccessCodeFormProps>(({ id }) => {
-  const { t } = useTranslation('error');
+  const { t } = useTranslation('tool');
   const [deleteMessage] = useChatStore((s) => [s.internalResendMessage, s.deleteMessage]);
   const subscription = useFirebaseStore.getState().subscription;
 
@@ -22,8 +22,8 @@ const AccessCodeForm = memo<AccessCodeFormProps>(({ id }) => {
     <>
       <FormAction
         avatar={'👑'}
-        description={t('unlock.password.description')}
-        title={t('unlock.password.title')}
+        description={t('subscriptionCard.description')}
+        title={t('subscriptionCard.title')}
       >
         <SubscriptionPlanList subscription={subscription}></SubscriptionPlanList>
       </FormAction>
@@ -33,7 +33,7 @@ const AccessCodeForm = memo<AccessCodeFormProps>(({ id }) => {
             deleteMessage(id);
           }}
         >
-          {t('unlock.closeMessage')}
+          {t('subscriptionCard.closeMessage')}
         </Button>
       </Flexbox>
     </>

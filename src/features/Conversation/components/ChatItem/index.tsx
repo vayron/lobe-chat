@@ -47,7 +47,6 @@ const Item = memo<ChatListItemProps>(({ index, id }) => {
   const meta = useSessionStore(agentSelectors.currentAgentMeta, isEqual);
   const item = useChatStore((s) => {
     const chats = chatSelectors.currentChatsWithGuideMessage(meta)(s);
-    console.log(chats.length === index, chats.length, index);
     if (
       subscription.isPay === false &&
       chats.length === index + 1 &&

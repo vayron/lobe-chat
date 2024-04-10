@@ -184,6 +184,7 @@ export default {
     tabs: {
       apiKey: '自定义 API Key',
       password: '密码',
+      subscription: '订阅',
     },
   },
 };

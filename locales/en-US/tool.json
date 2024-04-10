@@ -5,5 +5,51 @@
     "generate": "Generate",
     "generating": "Generating...",
     "images": "Images:"
+  },
+  "subscriptionCard": {
+    "closeMessage": "Close Prompt",
+    "description": "Your free trial or membership has expired. You need to subscribe or recharge to continue using.",
+    "title": "Upgrade Plan"
+  },
+  "subscriptionPlan": {
+    "currentPlan": "Your Current Plan",
+    "date": {
+      "day": "day",
+      "month": "month"
+    },
+    "plan_0": {
+      "btn": "Default Plan",
+      "list": {
+        "p_0": "Unlimited messages, interactions, and history records",
+        "p_1": "Free use and creation of agents",
+        "p_2": "Free use of ChatGPT plugins",
+        "p_3": "Compatible with PC and mobile",
+        "p_4": "Supports PWA"
+      },
+      "summary": "7-day free trial:",
+      "title": "Free"
+    },
+    "plan_1": {
+      "btn": "Subscribe to SVIP",
+      "list": {
+        "p_0": "Subscribe monthly and get 25% off immediately",
+        "p_1": "Cancel subscription anytime"
+      },
+      "summary": "All features available, plus:",
+      "title": "SVIP"
+    },
+    "plan_2": {
+      "btn": "Upgrade to VIP",
+      "list": {
+        "p_0": "Increase usage days by 30 days with a single recharge"
+      },
+      "summary": "All features available, plus:",
+      "title": "VIP"
+    }
+  },
+  "vip": {
+    "common": "{{days}} days free",
+    "free": "Free trial remaining {{days}} days",
+    "payment": "VIP expires in {{days}} days"
   }
 }

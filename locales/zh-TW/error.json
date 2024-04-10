@@ -159,7 +159,8 @@
     },
     "tabs": {
       "apiKey": "自定義 API Key",
-      "password": "密碼"
+      "password": "密碼",
+      "subscription": "訂閱"
     }
   }
 }

@@ -159,7 +159,8 @@
     },
     "tabs": {
       "apiKey": "사용자 정의 API Key",
-      "password": "비밀번호"
+      "password": "비밀번호",
+      "subscription": "구독"
     }
   }
 }

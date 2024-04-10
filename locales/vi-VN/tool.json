@@ -5,5 +5,51 @@
     "generate": "Tạo",
     "generating": "Đang tạo...",
     "images": "Hình ảnh:"
+  },
+  "subscriptionCard": {
+    "closeMessage": "Đóng thông báo",
+    "description": "Thẻ dùng thử miễn phí hoặc thành viên của bạn đã hết hạn. Bạn cần đăng ký hoặc nạp tiền để tiếp tục sử dụng.",
+    "title": "Nâng cấp gói"
+  },
+  "subscriptionPlan": {
+    "currentPlan": "Gói hiện tại của bạn",
+    "date": {
+      "day": "ngày",
+      "month": "tháng"
+    },
+    "plan_0": {
+      "btn": "Gói mặc định",
+      "list": {
+        "p_0": "Tin nhắn, tương tác và lịch sử không giới hạn",
+        "p_1": "Sử dụng và tạo đại lý miễn phí",
+        "p_2": "Sử dụng miễn phí các plugin ChatGPT",
+        "p_3": "Tương thích trên PC và di động",
+        "p_4": "Hỗ trợ PWA"
+      },
+      "summary": "Dùng thử miễn phí 7 ngày:",
+      "title": "Miễn phí"
+    },
+    "plan_1": {
+      "btn": "Đăng ký SVIP",
+      "list": {
+        "p_0": "Đăng ký hàng tháng ngay lập tức được giảm giá 25%",
+        "p_1": "Hủy đăng ký bất kỳ lúc nào"
+      },
+      "summary": "Tất cả tính năng có sẵn, cùng với:",
+      "title": "SVIP"
+    },
+    "plan_2": {
+      "btn": "Nâng cấp VIP",
+      "list": {
+        "p_0": "Nạp tiền một lần để tăng thêm 30 ngày sử dụng"
+      },
+      "summary": "Tất cả tính năng có sẵn, cùng với:",
+      "title": "VIP"
+    }
+  },
+  "vip": {
+    "common": "Miễn phí {{days}} ngày",
+    "free": "Dùng thử miễn phí còn {{days}} ngày",
+    "payment": "VIP hết hạn còn {{days}} ngày"
   }
 }

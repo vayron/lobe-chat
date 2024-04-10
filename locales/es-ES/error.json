@@ -159,7 +159,8 @@
     },
     "tabs": {
       "apiKey": "Clave de API personalizada",
-      "password": "Contraseña"
+      "password": "Contraseña",
+      "subscription": "Suscripción"
     }
   }
 }

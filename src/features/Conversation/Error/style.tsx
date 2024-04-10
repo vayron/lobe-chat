@@ -36,7 +36,7 @@ export const FormAction = memo<{
   const { styles, theme } = useStyles();
 
   return (
-    <Center gap={16} style={{ maxWidth: 600, width: '100%' }}>
+    <Center gap={16} style={{ maxWidth: 550, width: '100%' }}>
       <Avatar
         avatar={avatar}
         background={background ?? theme.colorFillContent}

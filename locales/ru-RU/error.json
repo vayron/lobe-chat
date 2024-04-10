@@ -159,7 +159,8 @@
     },
     "tabs": {
       "apiKey": "Пользовательский ключ API",
-      "password": "Пароль"
+      "password": "Пароль",
+      "subscription": "подписка"
     }
   }
 }

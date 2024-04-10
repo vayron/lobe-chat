@@ -5,5 +5,51 @@
     "generate": "Genera",
     "generating": "Generazione in corso...",
     "images": "Immagini:"
+  },
+  "subscriptionCard": {
+    "closeMessage": "Chiudi messaggio",
+    "description": "La tua prova gratuita o l'iscrizione sono scadute. È necessario sottoscrivere un abbonamento o ricaricare per continuare a utilizzare il servizio.",
+    "title": "Aggiorna piano"
+  },
+  "subscriptionPlan": {
+    "currentPlan": "Il tuo piano attuale",
+    "date": {
+      "day": "giorno",
+      "month": "mese"
+    },
+    "plan_0": {
+      "btn": "Piano predefinito",
+      "list": {
+        "p_0": "Messaggi, interazioni e cronologia illimitati",
+        "p_1": "Utilizzo gratuito e creazione di agenti",
+        "p_2": "Utilizzo gratuito dei plugin ChatGPT",
+        "p_3": "Compatibile con desktop e mobile",
+        "p_4": "Supporto PWA"
+      },
+      "summary": "Prova gratuita di 7 giorni:",
+      "title": "Gratuito"
+    },
+    "plan_1": {
+      "btn": "Abbonati a SVIP",
+      "list": {
+        "p_0": "Iscriviti subito con uno sconto del 25% ogni mese",
+        "p_1": "Annulla l'abbonamento in qualsiasi momento"
+      },
+      "summary": "Tutte le funzionalità e in più:",
+      "title": "SVIP"
+    },
+    "plan_2": {
+      "btn": "Aggiorna a VIP",
+      "list": {
+        "p_0": "Aumenta la durata dell'abbonamento di 30 giorni con una ricarica singola"
+      },
+      "summary": "Tutte le funzionalità e in più:",
+      "title": "VIP"
+    }
+  },
+  "vip": {
+    "common": "{{days}} giorni gratuiti",
+    "free": "Prova gratuita rimasta {{days}} giorni",
+    "payment": "Scadenza VIP tra {{days}} giorni"
   }
 }

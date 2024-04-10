@@ -159,7 +159,8 @@
     },
     "tabs": {
       "apiKey": "Khóa API tùy chỉnh",
-      "password": "Mật khẩu"
+      "password": "Mật khẩu",
+      "subscription": "Đăng ký"
     }
   }
 }

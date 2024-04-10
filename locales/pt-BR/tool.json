@@ -5,5 +5,51 @@
     "generate": "Gerar",
     "generating": "Gerando...",
     "images": "Imagens:"
+  },
+  "subscriptionCard": {
+    "closeMessage": "Fechar mensagem",
+    "description": "Sua avaliação gratuita ou associação expirou. Você precisa assinar ou recarregar para continuar usando.",
+    "title": "Plano de upgrade"
+  },
+  "subscriptionPlan": {
+    "currentPlan": "Seu plano atual",
+    "date": {
+      "day": "dia",
+      "month": "mês"
+    },
+    "plan_0": {
+      "btn": "Plano padrão",
+      "list": {
+        "p_0": "Mensagens, interações e histórico ilimitados",
+        "p_1": "Uso gratuito e criação de agentes",
+        "p_2": "Uso gratuito de plugins ChatGPT",
+        "p_3": "Compatível com desktop e mobile",
+        "p_4": "Suporte a PWA"
+      },
+      "summary": "7 dias de avaliação gratuita:",
+      "title": "Grátis"
+    },
+    "plan_1": {
+      "btn": "Assinar SVIP",
+      "list": {
+        "p_0": "Assine mensalmente e obtenha 25% de desconto imediato",
+        "p_1": "Cancelamento a qualquer momento"
+      },
+      "summary": "Todos os recursos disponíveis, além de:",
+      "title": "SVIP"
+    },
+    "plan_2": {
+      "btn": "Upgrade para VIP",
+      "list": {
+        "p_0": "Aumente a duração da assinatura em 30 dias com uma recarga única"
+      },
+      "summary": "Todos os recursos disponíveis, além de:",
+      "title": "VIP"
+    }
+  },
+  "vip": {
+    "common": "{{days}} dias grátis",
+    "free": "Avaliação gratuita restante: {{days}} dias",
+    "payment": "VIP expira em {{days}} dias"
   }
 }

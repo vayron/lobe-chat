@@ -159,7 +159,8 @@
     },
     "tabs": {
       "apiKey": "Benutzerdefinierter API-Schlüssel",
-      "password": "Passwort"
+      "password": "Passwort",
+      "subscription": "Abonnement"
     }
   }
 }

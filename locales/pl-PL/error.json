@@ -159,7 +159,8 @@
     },
     "tabs": {
       "apiKey": "Niestandardowy klucz API",
-      "password": "Hasło"
+      "password": "Hasło",
+      "subscription": "Subskrypcja"
     }
   }
 }

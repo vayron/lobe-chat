@@ -29,6 +29,7 @@ interface InvalidAccessCodeProps {
 
 const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider, tab }) => {
   const { t } = useTranslation('error');
+
   const isEnabledOAuth = useGlobalStore(commonSelectors.enabledOAuthSSO);
   const defaultTab = tab || (isEnabledOAuth ? Tab.Oauth : Tab.Subscription);
   const [mode, setMode] = useState<Tab>(defaultTab);
@@ -49,7 +50,7 @@ const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider, tab }) =
               : undefined,
             {
               icon: <Icon icon={AsteriskSquare} />,
-              label: t('unlock.tabs.password'),
+              label: t('unlock.tabs.subscription'),
               value: Tab.Subscription,
             },
             { icon: <Icon icon={KeySquare} />, label: t('unlock.tabs.apiKey'), value: Tab.Api },
