@@ -16,7 +16,7 @@ interface AccessCodeFormProps {
 const AccessCodeForm = memo<AccessCodeFormProps>(({ id }) => {
   const { t } = useTranslation('tool');
   const [deleteMessage] = useChatStore((s) => [s.internalResendMessage, s.deleteMessage]);
-  const subscription = useFirebaseStore.getState().subscription;
+  const { links, subscription } = useFirebaseStore.getState();
 
   return (
     <>
@@ -25,7 +25,7 @@ const AccessCodeForm = memo<AccessCodeFormProps>(({ id }) => {
         description={t('subscriptionCard.description')}
         title={t('subscriptionCard.title')}
       >
-        <SubscriptionPlanList subscription={subscription}></SubscriptionPlanList>
+        <SubscriptionPlanList links={links} subscription={subscription}></SubscriptionPlanList>
       </FormAction>
       <Flexbox gap={12}>
         <Button

@@ -4,6 +4,10 @@ import { firebaseService } from '@/services/firebase';
 
 export interface StoreState {
   createSubscriptionAction: (email: string) => void;
+  links: {
+    svip: string;
+    vip: string;
+  };
   subscription: {
     email?: string;
     isPay?: boolean;
@@ -14,6 +18,10 @@ export interface StoreState {
 }
 
 const initialState = {
+  links: {
+    svip: 'https://buy.stripe.com/4gw28XfiH0E30XC9AA',
+    vip: 'https://buy.stripe.com/8wM14Tb2rgD1bCgcMN',
+  },
   subscription: {},
 };
 

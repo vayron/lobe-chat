@@ -68,7 +68,7 @@ const Vip = memo<{ isMobile?: boolean }>(({ isMobile }) => {
 
   const { styles } = useStyles();
   const { t } = useTranslation('tool');
-  const { subscription, createSubscriptionAction } = useFirebaseStore();
+  const { createSubscriptionAction, links, subscription } = useFirebaseStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -107,6 +107,7 @@ const Vip = memo<{ isMobile?: boolean }>(({ isMobile }) => {
         >
           <SubscriptionPlanList
             isMobile={isMobile}
+            links={links}
             subscription={subscription}
           ></SubscriptionPlanList>
         </Modal>

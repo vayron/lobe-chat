@@ -7,10 +7,14 @@ import { useStyles } from './style';
 
 interface SubscriptionPlan {
   isMobile?: boolean;
+  links: {
+    svip: string;
+    vip: string;
+  };
   subscription: any;
 }
 
-const SubscriptionPlanList = memo<SubscriptionPlan>(({ isMobile, subscription }) => {
+const SubscriptionPlanList = memo<SubscriptionPlan>(({ isMobile, links, subscription }) => {
   const { styles } = useStyles();
   const store = useCreateStore();
   const { t } = useTranslation('tool');
@@ -57,7 +61,7 @@ const SubscriptionPlanList = memo<SubscriptionPlan>(({ isMobile, subscription })
       active: subscription?.mode === 1,
       btn: t('subscriptionPlan.plan_1.btn'),
       btnBgColor: '#d90000',
-      href: '',
+      href: `${links.svip}?prefilled_email=${encodeURIComponent(subscription?.email)}`,
       icon: (
         <>
           <Icon color="yellow" icon={Zap} /> SVIP
@@ -78,6 +82,7 @@ const SubscriptionPlanList = memo<SubscriptionPlan>(({ isMobile, subscription })
       active: subscription?.mode === 2,
       btn: t('subscriptionPlan.plan_2.btn'),
       btnBgColor: 'rgba(0,102,222,1)',
+      href: `${links.vip}?prefilled_email=${encodeURIComponent(subscription?.email)}`,
       icon: (
         <>
           <Icon color="rgba(0,102,222,1)" icon={Sparkles} /> VIP
