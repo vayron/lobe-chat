@@ -112,6 +112,7 @@ const SubscriptionPlanList = memo<SubscriptionPlan>(({ isMobile, links, subscrip
             <p className={styles.subTitle}>{item.subTitle}</p>
             <a
               className={`${styles.btn} ${item.active ? styles.active : undefined}`}
+              href={item.href}
               style={{ background: item.btnBgColor }}
             >
               {item.active ? t('subscriptionPlan.currentPlan') : item.btn}
