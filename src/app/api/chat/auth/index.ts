@@ -22,6 +22,8 @@ export const checkAuth =
       const oauthAuthorized = !!req.headers.get(OAUTH_AUTHORIZED);
 
       if (!authorization) throw AgentRuntimeError.createError(ChatErrorType.Unauthorized);
+      if (!oauthAuthorized)
+        throw AgentRuntimeError.createError(ChatErrorType.InvalidAccessCode, { provider: 'oauth' });
 
       // check the Auth With payload
       jwtPayload = await getJWTPayload(authorization);
