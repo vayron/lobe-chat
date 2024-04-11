@@ -1,5 +1,8 @@
+import { cookies } from 'next/headers';
+
 import { getPreferredRegion } from '@/app/api/config';
 import { createErrorResponse } from '@/app/api/errorResponse';
+import { OAUTH_AUTHORIZED } from '@/const/auth';
 import { ChatCompletionErrorPayload } from '@/libs/agent-runtime';
 import { ChatErrorType } from '@/types/fetch';
 import { ChatStreamPayload } from '@/types/openai/chat';
@@ -14,14 +17,29 @@ export const preferredRegion = getPreferredRegion();
 
 export const POST = checkAuth(async (req: Request, { params, jwtPayload }) => {
   const { provider } = params;
-
+  const cookieStore = cookies();
   try {
     // ============  1. init chat model   ============ //
     const agentRuntime = await AgentRuntime.initializeWithUserPayload(provider, jwtPayload);
 
+    const oauthAuthorized = !!req.headers.get(OAUTH_AUTHORIZED);
+
+    // check the access code
+    if (!oauthAuthorized) {
+      return createErrorResponse(ChatErrorType.InvalidAccessCode, {
+        provider: 'oauth',
+      });
+      // check vip
+    } else if (cookieStore.get('UFO-PAY')?.value === 'false') {
+      return createErrorResponse(ChatErrorType.InvalidAccessCode, {
+        provider: 'subscription',
+      });
+    }
     // ============  2. create chat completion   ============ //
 
     const data = (await req.json()) as ChatStreamPayload;
+
+    // console.log('provider: ', provider, data);
 
     const tracePayload = getTracePayload(req);
 

@@ -23,15 +23,14 @@ enum Tab {
 
 interface InvalidAccessCodeProps {
   id: string;
-  provider?: string;
-  tab: any;
+  provider?: any;
 }
 
-const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider, tab }) => {
+const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider }) => {
   const { t } = useTranslation('error');
 
   const isEnabledOAuth = useGlobalStore(commonSelectors.enabledOAuthSSO);
-  const defaultTab = tab || (isEnabledOAuth ? Tab.Oauth : Tab.Subscription);
+  const defaultTab = provider || (isEnabledOAuth ? Tab.Oauth : Tab.Subscription);
   const [mode, setMode] = useState<Tab>(defaultTab);
 
   return (

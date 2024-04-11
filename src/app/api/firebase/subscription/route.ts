@@ -1,5 +1,6 @@
 import { where } from 'firebase/firestore';
 import moment from 'moment';
+import { cookies } from 'next/headers';
 
 import { get, update } from '../controller';
 
@@ -32,6 +33,8 @@ export const GET = async (req: Request, res: Response) => {
     } else {
       result.data.isPay = false;
     }
+
+    cookies().set('UFO-PAY', result.data.isPay);
   } catch (e) {
     console.log('e: ', e);
   }

@@ -10,10 +10,11 @@ export const config = {
 };
 const defaultMiddleware = () => NextResponse.next();
 
+const { ENABLE_OAUTH_SSO } = getServerConfig();
+
 const withAuthMiddleware = auth((req) => {
   // Just check if session exists
   const session = req.auth;
-
   // Check if next-auth throws errors
   // refs: https://github.com/lobehub/lobe-chat/pull/1323
   const isLoggedIn = !!session?.expires;
@@ -28,7 +29,5 @@ const withAuthMiddleware = auth((req) => {
     },
   });
 });
-
-const { ENABLE_OAUTH_SSO } = getServerConfig();
 
 export default !ENABLE_OAUTH_SSO ? defaultMiddleware : withAuthMiddleware;
