@@ -2,6 +2,139 @@
 
 # Changelog
 
+### [Version 0.147.5](https://github.com/lobehub/lobe-chat/compare/v0.147.4...v0.147.5)
+
+<sup>Released on **2024-04-11**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix only search topics in current session.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix only search topics in current session, closes [#1834](https://github.com/lobehub/lobe-chat/issues/1834) ([9fdcfa4](https://github.com/lobehub/lobe-chat/commit/9fdcfa4))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.147.4](https://github.com/lobehub/lobe-chat/compare/v0.147.3...v0.147.4)
+
+<sup>Released on **2024-04-11**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Add more builtin OpenRouter models.
+
+#### 💄 Styles
+
+- **misc**: Adjust minimum width value for DraggablePanel component.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Add more builtin OpenRouter models, closes [#1973](https://github.com/lobehub/lobe-chat/issues/1973) ([0000b1a](https://github.com/lobehub/lobe-chat/commit/0000b1a))
+
+#### Styles
+
+- **misc**: Adjust minimum width value for DraggablePanel component, closes [#1901](https://github.com/lobehub/lobe-chat/issues/1901) ([a696d37](https://github.com/lobehub/lobe-chat/commit/a696d37))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.147.3](https://github.com/lobehub/lobe-chat/compare/v0.147.2...v0.147.3)
+
+<sup>Released on **2024-04-11**</sup>
+
+#### 💄 Styles
+
+- **misc**: Support Google Proxy URL.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Support Google Proxy URL, closes [#1979](https://github.com/lobehub/lobe-chat/issues/1979) ([fbf2c24](https://github.com/lobehub/lobe-chat/commit/fbf2c24))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.147.2](https://github.com/lobehub/lobe-chat/compare/v0.147.1...v0.147.2)
+
+<sup>Released on **2024-04-11**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix custom model not display correctly.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix custom model not display correctly, closes [#1972](https://github.com/lobehub/lobe-chat/issues/1972) ([5d7cae9](https://github.com/lobehub/lobe-chat/commit/5d7cae9))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.147.1](https://github.com/lobehub/lobe-chat/compare/v0.147.0...v0.147.1)
+
+<sup>Released on **2024-04-11**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix normalizeLocale with first matching locale.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix normalizeLocale with first matching locale, closes [#1767](https://github.com/lobehub/lobe-chat/issues/1767) ([182ff23](https://github.com/lobehub/lobe-chat/commit/182ff23))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version 0.147.0](https://github.com/lobehub/lobe-chat/compare/v0.146.2...v0.147.0)
 
 <sup>Released on **2024-04-10**</sup>
