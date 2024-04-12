@@ -24,7 +24,7 @@ const metadata: Metadata = {
   icons: {
     apple: '/images/logo.png',
     icon: '/images/logo.png',
-    shortcut: '/icons/favicon.ico',
+    shortcut: '/favicon.ico',
   },
   manifest: noManifest ? undefined : '/manifest.json',
   metadataBase: new URL(SITE_URL),
