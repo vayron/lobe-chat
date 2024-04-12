@@ -12,3 +12,7 @@ declare module 'antd-style' {
 declare module 'styled-components' {
   export interface DefaultTheme extends AntdToken, LobeCustomToken {}
 }
+
+declare module 'shiki/dist/index.mjs' {
+  export * from 'shiki';
+}
