@@ -1,3 +1,3 @@
-PROJECT='ufosb'
+PROJECT='vayron168/ufosb'
 
-docker build -t "$PROJECT":latest .
+docker build --platform linux/amd64 -t "$PROJECT":latest .
