@@ -55,6 +55,7 @@ EXPOSE 3210
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 ENV PORT=3210
+ENV NEXTAUTH_URL "https://www.ufosb.com/api/auth"
 
 # General Variables
 ENV ACCESS_CODE ""
