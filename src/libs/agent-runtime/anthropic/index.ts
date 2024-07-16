@@ -1,7 +1,6 @@
 // sort-imports-ignore
 import '@anthropic-ai/sdk/shims/web';
 import Anthropic from '@anthropic-ai/sdk';
-import { AnthropicStream, StreamingTextResponse } from 'ai';
 import { ClientOptions } from 'openai';
 
 import { LobeRuntimeAI } from '../BaseAI';
@@ -10,7 +9,9 @@ import { ChatCompetitionOptions, ChatStreamPayload, ModelProvider } from '../typ
 import { AgentRuntimeError } from '../utils/createError';
 import { debugStream } from '../utils/debugStream';
 import { desensitizeUrl } from '../utils/desensitizeUrl';
-import { buildAnthropicMessages } from '../utils/anthropicHelpers';
+import { buildAnthropicMessages, buildAnthropicTools } from '../utils/anthropicHelpers';
+import { StreamingResponse } from '../utils/response';
+import { AnthropicStream } from '../utils/streams';
 
 const DEFAULT_BASE_URL = 'https://api.anthropic.com';
 
@@ -19,28 +20,22 @@ export class LobeAnthropicAI implements LobeRuntimeAI {
 
   baseURL: string;
 
-  constructor({ apiKey, baseURL = DEFAULT_BASE_URL }: ClientOptions) {
-    if (!apiKey) throw AgentRuntimeError.createError(AgentRuntimeErrorType.InvalidAnthropicAPIKey);
+  constructor({ apiKey, baseURL = DEFAULT_BASE_URL }: ClientOptions = {}) {
+    if (!apiKey) throw AgentRuntimeError.createError(AgentRuntimeErrorType.InvalidProviderAPIKey);
 
     this.client = new Anthropic({ apiKey, baseURL });
     this.baseURL = this.client.baseURL;
   }
 
   async chat(payload: ChatStreamPayload, options?: ChatCompetitionOptions) {
-    const { messages, model, max_tokens, temperature, top_p } = payload;
-    const system_message = messages.find((m) => m.role === 'system');
-    const user_messages = messages.filter((m) => m.role !== 'system');
-
     try {
-      const response = await this.client.messages.create({
-        max_tokens: max_tokens || 4096,
-        messages: buildAnthropicMessages(user_messages),
-        model: model,
-        stream: true,
-        system: system_message?.content as string,
-        temperature: temperature,
-        top_p: top_p,
-      });
+      const anthropicPayload = this.buildAnthropicPayload(payload);
+      const response = await this.client.messages.create(
+        { ...anthropicPayload, stream: true },
+        {
+          signal: options?.signal,
+        },
+      );
 
       const [prod, debug] = response.tee();
 
@@ -48,7 +43,7 @@ export class LobeAnthropicAI implements LobeRuntimeAI {
         debugStream(debug.toReadableStream()).catch(console.error);
       }
 
-      return new StreamingTextResponse(AnthropicStream(prod, options?.callback), {
+      return StreamingResponse(AnthropicStream(prod, options?.callback), {
         headers: options?.headers,
       });
     } catch (error) {
@@ -64,7 +59,16 @@ export class LobeAnthropicAI implements LobeRuntimeAI {
             throw AgentRuntimeError.chat({
               endpoint: desensitizedEndpoint,
               error: error as any,
-              errorType: AgentRuntimeErrorType.InvalidAnthropicAPIKey,
+              errorType: AgentRuntimeErrorType.InvalidProviderAPIKey,
+              provider: ModelProvider.Anthropic,
+            });
+          }
+
+          case 403: {
+            throw AgentRuntimeError.chat({
+              endpoint: desensitizedEndpoint,
+              error: error as any,
+              errorType: AgentRuntimeErrorType.LocationNotSupportError,
               provider: ModelProvider.Anthropic,
             });
           }
@@ -76,10 +80,26 @@ export class LobeAnthropicAI implements LobeRuntimeAI {
       throw AgentRuntimeError.chat({
         endpoint: desensitizedEndpoint,
         error: error as any,
-        errorType: AgentRuntimeErrorType.AnthropicBizError,
+        errorType: AgentRuntimeErrorType.ProviderBizError,
         provider: ModelProvider.Anthropic,
       });
     }
+  }
+
+  private buildAnthropicPayload(payload: ChatStreamPayload) {
+    const { messages, model, max_tokens = 4096, temperature, top_p, tools } = payload;
+    const system_message = messages.find((m) => m.role === 'system');
+    const user_messages = messages.filter((m) => m.role !== 'system');
+
+    return {
+      max_tokens,
+      messages: buildAnthropicMessages(user_messages),
+      model,
+      system: system_message?.content as string,
+      temperature,
+      tools: buildAnthropicTools(tools),
+      top_p,
+    } satisfies Anthropic.MessageCreateParams;
   }
 }
 

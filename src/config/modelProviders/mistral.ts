@@ -1,6 +1,6 @@
 import { ModelProviderCard } from '@/types/llm';
 
-// ref https://docs.mistral.ai/platform/pricing/#chat-completions-api
+// ref https://docs.mistral.ai/getting-started/models/
 const Mistral: ModelProviderCard = {
   chatModels: [
     {
@@ -14,6 +14,13 @@ const Mistral: ModelProviderCard = {
       enabled: true,
       id: 'open-mixtral-8x7b',
       tokens: 32_768,
+    },
+    {
+      displayName: 'Mixtral 8x22B',
+      enabled: true,
+      functionCall: true,
+      id: 'open-mixtral-8x22b',
+      tokens: 65_536,
     },
     {
       displayName: 'Mistral Small',
@@ -33,13 +40,10 @@ const Mistral: ModelProviderCard = {
       id: 'mistral-large-latest',
       tokens: 32_768,
     },
-    {
-      displayName: 'Mixtral 8x22B',
-      id: 'mixtral-8x22b',
-      tokens: 32_768,
-    },
   ],
+  checkModel: 'open-mistral-7b',
   id: 'mistral',
+  name: 'Mistral',
 };
 
 export default Mistral;

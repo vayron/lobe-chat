@@ -4,52 +4,7 @@
     "downloading": "Die von DallE3 generierten Bildlinks sind nur 1 Stunde lang gültig. Das Bild wird lokal zwischengespeichert...",
     "generate": "Generieren",
     "generating": "Generiert",
-    "images": "Bilder:"
-  },
-  "subscriptionCard": {
-    "closeMessage": "Schließen",
-    "description": "Ihre kostenlose Testversion oder Mitgliedschaft ist abgelaufen. Sie müssen ein Abonnement abschließen oder aufladen, um fortzufahren.",
-    "title": "Upgrade-Plan"
-  },
-  "subscriptionPlan": {
-    "currentPlan": "Ihr aktueller Plan",
-    "date": {
-      "day": "Tag",
-      "month": "Monat"
-    },
-    "plan_0": {
-      "btn": "Standardplan",
-      "list": {
-        "p_0": "Unbegrenzte Nachrichten, Interaktionen und Verlaufsprotokolle",
-        "p_1": "Kostenlose Nutzung und Erstellung von Agenten",
-        "p_2": "Kostenlose Nutzung des ChatGPT-Plugins",
-        "p_3": "Kompatibel mit Desktop und Mobilgeräten",
-        "p_4": "Unterstützung von PWA"
-      },
-      "summary": "7 Tage kostenlos testen:",
-      "title": "Kostenlos"
-    },
-    "plan_1": {
-      "btn": "SVIP abonnieren",
-      "list": {
-        "p_0": "Sofort 25% Rabatt auf monatliches Abonnement",
-        "p_1": "Jederzeit kündbar"
-      },
-      "summary": "Alle Funktionen verfügbar, sowie:",
-      "title": "SVIP"
-    },
-    "plan_2": {
-      "btn": "VIP-Upgrade",
-      "list": {
-        "p_0": "Einmalige Aufladung für zusätzliche 30 Tage Nutzung",
-        "summary": "Alle Funktionen verfügbar, sowie:",
-        "title": "VIP"
-      }
-    },
-    "vip": {
-      "common": "{{days}} Tage kostenlos",
-      "free": "Kostenlose Testversion noch {{days}} Tage",
-      "payment": "VIP läuft in {{days}} Tagen ab"
-    }
+    "images": "Bilder:",
+    "prompt": "Hinweiswort"
   }
 }

@@ -5,6 +5,7 @@ export default {
     generate: '生成',
     generating: '生成中...',
     images: '图片:',
+    prompt: '提示词',
   },
   subscriptionCard: {
     closeMessage: '关闭提示',

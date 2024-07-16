@@ -4,52 +4,7 @@
     "downloading": "DallE3 生成的圖片連結有效期僅1小時，正在快取圖片到本地...",
     "generate": "生成",
     "generating": "生成中...",
-    "images": "圖片:"
-  },
-  "subscriptionCard": {
-    "closeMessage": "關閉提示",
-    "description": "您的免費試用或會員資格已過期。您需要訂閱或充值才可以繼續使用。",
-    "title": "升級計劃"
-  },
-  "subscriptionPlan": {
-    "currentPlan": "您當前的計劃",
-    "date": {
-      "day": "天",
-      "month": "月"
-    },
-    "plan_0": {
-      "btn": "默認計劃",
-      "list": {
-        "p_0": "無限消息、互動和歷史記錄",
-        "p_1": "免費使用和創建代理",
-        "p_2": "免費使用 ChatGPT 插件",
-        "p_3": "PC端、移動端兼容",
-        "p_4": "支持PWA"
-      },
-      "summary": "7天免費試用:",
-      "title": "免費"
-    },
-    "plan_1": {
-      "btn": "訂閱SVIP",
-      "list": {
-        "p_0": "訂閱每月立即享受 25% 折扣",
-        "p_1": "隨時取消訂閱"
-      },
-      "summary": "所有功能可使用，以及:",
-      "title": "SVIP"
-    },
-    "plan_2": {
-      "btn": "升級VIP",
-      "list": {
-        "p_0": "單次充值使用天數增加 30 天"
-      },
-      "summary": "所有功能可使用，以及:",
-      "title": "VIP"
-    }
-  },
-  "vip": {
-    "common": "{{days}} 天免費",
-    "free": "免費試用剩餘 {{days}} 天",
-    "payment": "VIP 過期 {{days}} 天"
+    "images": "圖片:",
+    "prompt": "提示詞"
   }
 }

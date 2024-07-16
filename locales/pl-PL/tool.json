@@ -4,52 +4,7 @@
     "downloading": "Linki do obrazów wygenerowanych przez DallE3 są ważne tylko przez 1 godzinę. Trwa pobieranie obrazów do lokalnego bufora...",
     "generate": "Generuj",
     "generating": "Generowanie...",
-    "images": "Obrazy:"
-  },
-  "subscriptionCard": {
-    "closeMessage": "Zamknij komunikat",
-    "description": "Twój darmowy okres próbny lub członkostwo wygasły. Aby kontynuować korzystanie, musisz się zapisać lub doładować konto.",
-    "title": "Plan aktualizacji"
-  },
-  "subscriptionPlan": {
-    "currentPlan": "Twój obecny plan",
-    "date": {
-      "day": "dzień",
-      "month": "miesiąc"
-    },
-    "plan_0": {
-      "btn": "Domyślny plan",
-      "list": {
-        "p_0": "Nieograniczona liczba wiadomości, interakcji i historii",
-        "p_1": "Darmowe korzystanie i tworzenie agentów",
-        "p_2": "Darmowe korzystanie z wtyczek ChatGPT",
-        "p_3": "Kompatybilność z wersją na PC i mobilną",
-        "p_4": "Obsługa PWA"
-      },
-      "summary": "Bezpłatny okres próbny trwający 7 dni:",
-      "title": "Darmowy"
-    },
-    "plan_1": {
-      "btn": "Subskrybuj SVIP",
-      "list": {
-        "p_0": "Zapisz się na miesięczną subskrypcję i otrzymaj natychmiastowy rabat 25%",
-        "p_1": "Możliwość anulowania subskrypcji w dowolnym momencie"
-      },
-      "summary": "Wszystkie funkcje dostępne, w tym:",
-      "title": "SVIP"
-    },
-    "plan_2": {
-      "btn": "Uaktualnij na VIP",
-      "list": {
-        "p_0": "Zwiększenie liczby dni użytkowania za jednorazową opłatą o 30 dni"
-      },
-      "summary": "Wszystkie funkcje dostępne, w tym:",
-      "title": "VIP"
-    }
-  },
-  "vip": {
-    "common": "{{days}} dni za darmo",
-    "free": "Pozostało {{days}} dni darmowego okresu próbnego",
-    "payment": "Wygaśnięcie VIP za {{days}} dni"
+    "images": "Obrazy:",
+    "prompt": "słowo kluczowe"
   }
 }

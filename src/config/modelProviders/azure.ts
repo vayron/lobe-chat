@@ -1,5 +1,6 @@
 import { ModelProviderCard } from '@/types/llm';
 
+// ref https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models
 const Azure: ModelProviderCard = {
   chatModels: [
     {
@@ -36,7 +37,9 @@ const Azure: ModelProviderCard = {
       vision: true,
     },
   ],
+  defaultShowBrowserRequest: true,
   id: 'azure',
+  name: 'Azure',
 };
 
 export default Azure;

@@ -4,52 +4,7 @@
     "downloading": "Les liens d'image générés par DallE3 ne sont valides que pendant 1 heure. Le téléchargement de l'image est en cours...",
     "generate": "Générer",
     "generating": "En cours de génération...",
-    "images": "Images :"
-  },
-  "subscriptionCard": {
-    "closeMessage": "Fermer le message",
-    "description": "Votre période d'essai gratuit ou d'adhésion a expiré. Vous devez souscrire ou recharger pour continuer à utiliser.",
-    "title": "Mise à niveau du plan"
-  },
-  "subscriptionPlan": {
-    "currentPlan": "Votre plan actuel",
-    "date": {
-      "day": "jour",
-      "month": "mois"
-    },
-    "plan_0": {
-      "btn": "Plan par défaut",
-      "list": {
-        "p_0": "Messages illimités, interactions et historique",
-        "p_1": "Utilisation gratuite et création d'agents",
-        "p_2": "Utilisation gratuite des plugins ChatGPT",
-        "p_3": "Compatible avec les appareils de bureau et mobiles",
-        "p_4": "Prise en charge de PWA"
-      },
-      "summary": "Essai gratuit de 7 jours :",
-      "title": "Gratuit"
-    },
-    "plan_1": {
-      "btn": "Souscrire à SVIP",
-      "list": {
-        "p_0": "Abonnez-vous maintenant pour bénéficier immédiatement d'une remise de 25% par mois",
-        "p_1": "Annulation de l'abonnement à tout moment"
-      },
-      "summary": "Toutes les fonctionnalités plus :",
-      "title": "SVIP"
-    },
-    "plan_2": {
-      "btn": "Mise à niveau VIP",
-      "list": {
-        "p_0": "Augmentation de 30 jours à chaque recharge unique",
-        "summary": "Toutes les fonctionnalités plus :",
-        "title": "VIP"
-      }
-    },
-    "vip": {
-      "common": "{{days}} jours gratuits",
-      "free": "Essai gratuit restant {{days}} jours",
-      "payment": "VIP expire dans {{days}} jours"
-    }
+    "images": "Images :",
+    "prompt": "Mot de rappel"
   }
 }

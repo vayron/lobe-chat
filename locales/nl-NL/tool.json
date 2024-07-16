@@ -4,52 +4,7 @@
     "downloading": "De link naar de afbeelding gegenereerd door DallE3 is slechts 1 uur geldig. De afbeelding wordt lokaal in de cache opgeslagen...",
     "generate": "Genereren",
     "generating": "Bezig met genereren...",
-    "images": "Afbeeldingen:"
-  },
-  "subscriptionCard": {
-    "closeMessage": "Sluit bericht",
-    "description": "Uw gratis proefperiode of lidmaatschap is verlopen. U moet zich abonneren of opwaarderen om door te gaan met gebruik.",
-    "title": "Upgrade plan"
-  },
-  "subscriptionPlan": {
-    "currentPlan": "Uw huidige plan",
-    "date": {
-      "day": "dag",
-      "month": "maand"
-    },
-    "plan_0": {
-      "btn": "Standaard plan",
-      "list": {
-        "p_0": "Onbeperkt berichten, interacties en geschiedenis",
-        "p_1": "Gratis gebruik en aanmaken van agents",
-        "p_2": "Gratis gebruik van ChatGPT plug-ins",
-        "p_3": "Compatibel met pc en mobiel",
-        "p_4": "Ondersteunt PWA"
-      },
-      "summary": "7 dagen gratis proberen:",
-      "title": "Gratis"
-    },
-    "plan_1": {
-      "btn": "Abonneer op SVIP",
-      "list": {
-        "p_0": "Direct 25% korting bij maandelijkse abonnement",
-        "p_1": "Op elk moment abonnement opzegbaar"
-      },
-      "summary": "Alle functies beschikbaar, plus:",
-      "title": "SVIP"
-    },
-    "plan_2": {
-      "btn": "Upgrade naar VIP",
-      "list": {
-        "p_0": "Voeg 30 dagen toe bij eenmalige opwaardering"
-      },
-      "summary": "Alle functies beschikbaar, plus:",
-      "title": "VIP"
-    }
-  },
-  "vip": {
-    "common": "{{days}} dagen gratis",
-    "free": "Gratis proefperiode resterend {{days}} dagen",
-    "payment": "VIP verloopt over {{days}} dagen"
+    "images": "Afbeeldingen:",
+    "prompt": "prompt"
   }
 }

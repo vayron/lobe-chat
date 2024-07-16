@@ -4,52 +4,7 @@
     "downloading": "DallE3 tarafından oluşturulan resim bağlantıları sadece 1 saat geçerlidir, resim yerel olarak önbelleğe alınıyor...",
     "generate": "Oluştur",
     "generating": "Oluşturuluyor...",
-    "images": "Görseller:"
-  },
-  "subscriptionCard": {
-    "closeMessage": "Kapatma İletisi",
-    "description": "Ücretsiz deneme süreniz veya üyeliğiniz sona erdi. Devam etmek için abone olmanız veya ödeme yapmanız gerekmektedir.",
-    "title": "Abonelik Planı Yükselt"
-  },
-  "subscriptionPlan": {
-    "currentPlan": "Mevcut Planınız",
-    "date": {
-      "day": "gün",
-      "month": "ay"
-    },
-    "plan_0": {
-      "btn": "Varsayılan Plan",
-      "list": {
-        "p_0": "Sınırsız mesaj, etkileşim ve geçmiş kaydı",
-        "p_1": "Ücretsiz kullanım ve bot oluşturma",
-        "p_2": "ChatGPT eklentilerini ücretsiz kullanma",
-        "p_3": "PC ve mobil uyumluluk",
-        "p_4": "PWA desteği"
-      },
-      "summary": "7 günlük ücretsiz deneme:",
-      "title": "Ücretsiz"
-    },
-    "plan_1": {
-      "btn": "SVIP Aboneliği",
-      "list": {
-        "p_0": "Aylık abonelik için anında %25 indirim",
-        "p_1": "İstediğiniz zaman aboneliği iptal edin"
-      },
-      "summary": "Tüm özelliklerin yanı sıra kullanılabilir:",
-      "title": "SVIP"
-    },
-    "plan_2": {
-      "btn": "VIP Yükseltmesi",
-      "list": {
-        "p_0": "Tek seferlik ödemeyle 30 gün ek kullanım süresi",
-        "summary": "Tüm özelliklerin yanı sıra kullanılabilir:",
-        "title": "VIP"
-      }
-    }
-  },
-  "vip": {
-    "common": "{{days}} gün ücretsiz",
-    "free": "Ücretsiz deneme süresi {{days}} gün kaldı",
-    "payment": "VIP {{days}} gün sonra sona erecek"
+    "images": "Görseller:",
+    "prompt": "İpucu"
   }
 }

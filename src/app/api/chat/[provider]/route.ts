@@ -1,52 +1,45 @@
-import { cookies } from 'next/headers';
-
 import { getPreferredRegion } from '@/app/api/config';
 import { createErrorResponse } from '@/app/api/errorResponse';
-import { OAUTH_AUTHORIZED } from '@/const/auth';
-import { ChatCompletionErrorPayload } from '@/libs/agent-runtime';
+import { AgentRuntime, ChatCompletionErrorPayload } from '@/libs/agent-runtime';
 import { ChatErrorType } from '@/types/fetch';
 import { ChatStreamPayload } from '@/types/openai/chat';
 import { getTracePayload } from '@/utils/trace';
 
-import AgentRuntime from '../agentRuntime';
-import { checkAuth } from '../auth';
+import { checkAuth } from '../../middleware/auth';
+import { createTraceOptions, initAgentRuntimeWithUserPayload } from '../agentRuntime';
 
 export const runtime = 'edge';
 
 export const preferredRegion = getPreferredRegion();
 
-export const POST = checkAuth(async (req: Request, { params, jwtPayload }) => {
+export const POST = checkAuth(async (req: Request, { params, jwtPayload, createRuntime }) => {
   const { provider } = params;
-  const cookieStore = cookies();
+
   try {
     // ============  1. init chat model   ============ //
-    const agentRuntime = await AgentRuntime.initializeWithUserPayload(provider, jwtPayload);
-
-    const oauthAuthorized = !!req.headers.get(OAUTH_AUTHORIZED);
-
-    if (!oauthAuthorized) {
-      return createErrorResponse(ChatErrorType.InvalidAccessCode, {
-        provider: 'oauth',
-      });
-      // check vip
-    } else if (cookieStore.get('UFO-PAY')?.value === 'false') {
-      return createErrorResponse(ChatErrorType.InvalidAccessCode, {
-        provider: 'subscription',
-      });
+    let agentRuntime: AgentRuntime;
+    if (createRuntime) {
+      agentRuntime = createRuntime(jwtPayload);
+    } else {
+      agentRuntime = await initAgentRuntimeWithUserPayload(provider, jwtPayload);
     }
+
     // ============  2. create chat completion   ============ //
 
     const data = (await req.json()) as ChatStreamPayload;
 
-    // console.log('provider: ', provider, data);
-
     const tracePayload = getTracePayload(req);
 
-    return await agentRuntime.chat(data, {
-      enableTrace: tracePayload?.enabled,
-      provider,
-      trace: tracePayload,
-    });
+    let traceOptions = {};
+    // If user enable trace
+    if (tracePayload?.enabled) {
+      traceOptions = createTraceOptions(data, {
+        provider,
+        trace: tracePayload,
+      });
+    }
+
+    return await agentRuntime.chat(data, { user: jwtPayload.userId, ...traceOptions });
   } catch (e) {
     const {
       errorType = ChatErrorType.InternalServerError,

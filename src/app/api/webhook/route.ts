@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-import { cancelSubscription, payment, subscription } from '../firebase/subscription';
+import { cancelSubscription, payment, subscription } from '@/app/api/firebase/subscription';
 
 const stripe = new Stripe(process.env.STRIPE_CODE);
 
