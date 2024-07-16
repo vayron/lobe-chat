@@ -5,12 +5,11 @@ import { useRouter } from 'next/navigation';
 import { memo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
+import Vip from '@/app/chat/components/Vip';
 import { MOBILE_HEADER_ICON_SIZE } from '@/const/layoutTokens';
 import { DEFAULT_USER_AVATAR_URL } from '@/const/meta';
 import { useSessionStore } from '@/store/session';
 import { mobileHeaderSticky } from '@/styles/mobileHeader';
-
-import Vip from '../../components/Vip';
 
 export const useStyles = createStyles(({ css, token }) => ({
   logo: css`

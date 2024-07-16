@@ -36,6 +36,12 @@ const SubscriptionPlanList = memo<SubscriptionPlan>(({ isMobile, links, subscrip
     { store },
   );
 
+  /**
+   * mode: 0: free, 1: 30天免费, 2: 月订阅
+   *
+   * **/
+
+  console.log('subscription', subscription);
   const [configs] = useState([
     {
       active: subscription?.mode === 0,
