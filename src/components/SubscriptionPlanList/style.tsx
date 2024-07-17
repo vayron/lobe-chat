@@ -7,14 +7,11 @@ export const useStyles = createStyles(({ css }) => ({
   `,
   btn: css`
     display: block;
-
     margin-top: 15px;
     padding: 10px 20px;
-
     font-weight: bold;
     color: #fff;
     text-align: center;
-
     background: #2f2f2f;
     border-radius: 8px;
   `,
@@ -40,7 +37,8 @@ export const useStyles = createStyles(({ css }) => ({
     }
 
     p {
-      margin-left: 15px;
+      margin-left: 10px;
+      margin-bottom: 10px;
     }
   `,
 }));

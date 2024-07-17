@@ -74,7 +74,7 @@ export default {
     PluginFailToTransformArguments:
       '很抱歉，插件调用参数解析失败，请尝试重新生成助手消息，或更换 Tools Calling 能力更强的 AI 模型后重试',
 
-    InvalidAccessCode: '密码不正确或为空，请输入正确的访问密码，或者添加自定义 API Key',
+    InvalidAccessCode: '没登录，或者会员过期，或者添加自定义 API Key',
     InvalidClerkUser: '很抱歉，你当前尚未登录，请先登录或注册账号后继续操作',
     LocationNotSupportError:
       '很抱歉，你的所在地区不支持此模型服务，可能是由于区域限制或服务未开通。请确认当前地区是否支持使用此服务，或尝试使用切换到其他地区后重试。',

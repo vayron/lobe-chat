@@ -16,7 +16,7 @@ export const useStyles = createStyles(({ css, token }) => ({
   `,
   form: css`
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
   `,
 }));
 

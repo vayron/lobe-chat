@@ -36,7 +36,7 @@ export default {
         p_0: '订阅每月立即享受 25% 折扣',
         p_1: '随时取消订阅',
       },
-      summary: '所有功能可使用，以及:',
+      summary: '所有功能可用，以及:',
       title: 'SVIP',
     },
     plan_2: {
@@ -44,7 +44,7 @@ export default {
       list: {
         p_0: '单次充值使用天数增加 30 天',
       },
-      summary: '所有功能可使用，以及:',
+      summary: '所有功能可用，以及:',
       title: 'VIP',
     },
   },

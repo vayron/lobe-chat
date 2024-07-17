@@ -22,7 +22,7 @@ const SubscriptionPlanList = memo<SubscriptionPlan>(({ isMobile, links, subscrip
     {
       gap: {
         step: 1,
-        value: 30,
+        value: 20,
       },
       maxItemWidth: {
         step: 1,

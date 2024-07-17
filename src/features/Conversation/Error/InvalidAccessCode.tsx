@@ -12,12 +12,14 @@ import { featureFlagsSelectors, serverConfigSelectors } from '@/store/serverConf
 import APIKeyForm from './APIKeyForm';
 import AccessCodeForm from './AccessCodeForm';
 import OAuthForm from './OAuthForm';
+import SubscriptionCard from './SubscriptionCard';
 import { ErrorActionContainer } from './style';
 
 enum Tab {
   Api = 'api',
   Oauth = 'oauth',
   Password = 'password',
+  Subscription = 'subscription',
 }
 
 interface InvalidAccessCodeProps {
@@ -48,6 +50,11 @@ const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider }) => {
                     value: Tab.Oauth,
                   }
                 : undefined,
+              {
+                icon: <Icon icon={AsteriskSquare} />,
+                label: t('unlock.tabs.subscription'),
+                value: Tab.Subscription,
+              },
               // {
               //   icon: <Icon icon={AsteriskSquare} />,
               //   label: t('unlock.tabs.password'),
@@ -68,6 +75,7 @@ const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider }) => {
       )}
 
       <Flexbox gap={24}>
+        {mode === Tab.Subscription && <SubscriptionCard id={id} />}
         {/* {mode === Tab.Password && <AccessCodeForm id={id} />} */}
         {showOpenAIApiKey && mode === Tab.Api && <APIKeyForm id={id} provider={provider} />}
         {isEnabledOAuth && mode === Tab.Oauth && <OAuthForm id={id} />}

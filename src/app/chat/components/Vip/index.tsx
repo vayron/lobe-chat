@@ -21,7 +21,7 @@ function Btn(props: any) {
   switch (props?.subscription?.mode) {
     case 0: {
       template = (
-        <p>
+        <p style={{ marginBottom: 0 }}>
           <Icon color="rgba(16,163,127,1)" icon={Shrub} />{' '}
           {props?.isMobile
             ? t('vip.common', {
