@@ -48,11 +48,11 @@ const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider }) => {
                     value: Tab.Oauth,
                   }
                 : undefined,
-              {
-                icon: <Icon icon={AsteriskSquare} />,
-                label: t('unlock.tabs.password'),
-                value: Tab.Password,
-              },
+              // {
+              //   icon: <Icon icon={AsteriskSquare} />,
+              //   label: t('unlock.tabs.password'),
+              //   value: Tab.Password,
+              // },
               showOpenAIApiKey
                 ? {
                     icon: <Icon icon={KeySquare} />,
@@ -68,7 +68,7 @@ const InvalidAccessCode = memo<InvalidAccessCodeProps>(({ id, provider }) => {
       )}
 
       <Flexbox gap={24}>
-        {mode === Tab.Password && <AccessCodeForm id={id} />}
+        {/* {mode === Tab.Password && <AccessCodeForm id={id} />} */}
         {showOpenAIApiKey && mode === Tab.Api && <APIKeyForm id={id} provider={provider} />}
         {isEnabledOAuth && mode === Tab.Oauth && <OAuthForm id={id} />}
       </Flexbox>

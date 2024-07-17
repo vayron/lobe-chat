@@ -14,6 +14,7 @@ export const GET = async (req: Request, res: Response) => {
   let result = {} as any;
   try {
     result = await get('subscription', where('email', '==', email));
+
     // 有效期内
     if (result?.data?.limit_time - Date.now() > 0) {
       const date1 = moment(result.data.limit_time);
