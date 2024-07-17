@@ -131,7 +131,7 @@ export default {
     tabs: {
       apiKey: '自定义 API Key',
       password: '密码',
-      subscription: '订阅',
+      subscription: '会员订阅',
     },
   },
   upload: { desc: '详情: {{detail}}', title: '文件上传失败，请检查网络连接或稍后再试' },
